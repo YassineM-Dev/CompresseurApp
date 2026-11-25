@@ -1,0 +1,25 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UseWindowsForms>true</UseWindowsForms>
+    <ApplicationHighDpiMode>PerMonitorV2</ApplicationHighDpiMode>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+    <AssemblyName>Compresseur-Patch</AssemblyName>
+    <RootNamespace>CompresseurPatch</RootNamespace>
+    <Product>Compresseur/Patch</Product>
+    <AssemblyTitle>Compresseur/Patch</AssemblyTitle>
+    <Company>Yassine</Company>
+    <Copyright>© Developped By Yassine</Copyright>
+    <Version>1.0.0</Version>
+    <SatelliteResourceLanguages>en</SatelliteResourceLanguages>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Assets\ffmpeg.gz" LogicalName="CompresseurPatch.Assets.ffmpeg.gz" />
+  </ItemGroup>
+
+</Project>
