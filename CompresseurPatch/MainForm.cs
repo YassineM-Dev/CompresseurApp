@@ -40,6 +40,12 @@ public sealed partial class MainForm : Form
         AllowDrop = true;
         DoubleBuffered = true;
 
+        var icon = GlassTheme.GetAppIcon();
+        if (icon is not null)
+        {
+            Icon = icon;
+        }
+
         _runButton = MakeButton("Compress video", isPrimary: true, width: 200);
         _cancelButton = MakeButton("Cancel", isPrimary: false, width: 115);
         _openFolderButton = MakeButton("Open folder", isPrimary: false, width: 135);

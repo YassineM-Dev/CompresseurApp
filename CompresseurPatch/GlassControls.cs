@@ -1,5 +1,6 @@
 using System.Drawing.Drawing2D;
 using System.Drawing.Text;
+using System.Reflection;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
 
@@ -16,6 +17,33 @@ internal static class GlassTheme
     public static readonly Color Ink = Color.FromArgb(242, 246, 252);
     public static readonly Color Muted = Color.FromArgb(156, 168, 188);
     public static readonly Color Danger = Color.FromArgb(255, 108, 118);
+
+    private static Icon? _cachedIcon;
+
+    public static Icon? GetAppIcon()
+    {
+        if (_cachedIcon is not null)
+        {
+            return _cachedIcon;
+        }
+
+        try
+        {
+            var asm = Assembly.GetExecutingAssembly();
+            using var stream = asm.GetManifestResourceStream("CompresseurPatch.Assets.app.ico");
+            if (stream is not null)
+            {
+                _cachedIcon = new Icon(stream);
+                return _cachedIcon;
+            }
+        }
+        catch
+        {
+            // Ignore icon load errors.
+        }
+
+        return null;
+    }
 
     public static void ApplyDarkTitleBar(IntPtr handle)
     {
